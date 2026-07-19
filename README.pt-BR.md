@@ -1,5 +1,7 @@
 # Estudo de Caso: Dunder Mifflin RevOps
 
+[![CI](https://github.com/anacartola/dunder-mifflin-revops/actions/workflows/ci.yml/badge.svg)](https://github.com/anacartola/dunder-mifflin-revops/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 [English](README.md) | **Português** | [Français](README.fr.md) | [简体中文](README.zh-CN.md)
 
 Um exercício autocontido de analytics de RevOps: um conjunto de dados sintético de
@@ -119,4 +121,4 @@ conjunto de dados educacional, gratuito e não comercial. Nenhuma afiliação ou
 endosso está implícito.
 
 O conjunto de dados, o notebook e o texto deste repositório são disponibilizados
-para uso educacional gratuito.
+para uso educacional gratuito. O código é licenciado sob a [Licença MIT](LICENSE).

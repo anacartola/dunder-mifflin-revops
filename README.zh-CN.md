@@ -1,5 +1,7 @@
 # Dunder Mifflin RevOps 案例研究
 
+[![CI](https://github.com/anacartola/dunder-mifflin-revops/actions/workflows/ci.yml/badge.svg)](https://github.com/anacartola/dunder-mifflin-revops/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 [English](README.md) | [Português](README.pt-BR.md) | [Français](README.fr.md) | **简体中文**
 
 一个自包含的 RevOps 分析练习：一份合成的 B2B SaaS 风格 CRM 数据集、来自 CRO 的三个开放式问题，
@@ -109,4 +111,4 @@ Process 部分是各项假设所在之处，也是最值得推敲的部分。
 《The Office》、Dunder Mifflin 以及角色名称均归其各自权利人所有，此处仅用作一个免费、
 非商业教学数据集中的标签。不暗示任何隶属或背书关系。
 
-本仓库中的数据集、notebook 及文本以免费教育用途发布。
+本仓库中的数据集、notebook 及文本以免费教育用途发布。代码依据 [MIT 许可证](LICENSE) 发布。

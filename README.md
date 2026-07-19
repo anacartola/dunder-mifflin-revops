@@ -1,5 +1,7 @@
 # Dunder Mifflin RevOps Case Study
 
+[![CI](https://github.com/anacartola/dunder-mifflin-revops/actions/workflows/ci.yml/badge.svg)](https://github.com/anacartola/dunder-mifflin-revops/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 **English** | [Português](README.pt-BR.md) | [Français](README.fr.md) | [简体中文](README.zh-CN.md)
 
 A self-contained RevOps analytics exercise: a synthetic B2B SaaS-style CRM dataset,
@@ -117,4 +119,4 @@ respective rights holders and are used here only as labels in a free,
 non-commercial teaching dataset. No affiliation or endorsement is implied.
 
 The dataset, notebook, and text in this repository are released for free
-educational use.
+educational use. The code is licensed under the [MIT License](LICENSE).

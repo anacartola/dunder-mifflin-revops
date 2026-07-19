@@ -1,5 +1,7 @@
 # Étude de cas : Dunder Mifflin RevOps
 
+[![CI](https://github.com/anacartola/dunder-mifflin-revops/actions/workflows/ci.yml/badge.svg)](https://github.com/anacartola/dunder-mifflin-revops/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 [English](README.md) | [Português](README.pt-BR.md) | **Français** | [简体中文](README.zh-CN.md)
 
 Un exercice d'analytique RevOps autonome : un jeu de données CRM synthétique de type
@@ -121,4 +123,4 @@ données pédagogique, gratuit et non commercial. Aucune affiliation ni aucun
 endossement n'est sous-entendu.
 
 Le jeu de données, le notebook et le texte de ce dépôt sont diffusés pour un usage
-éducatif gratuit.
+éducatif gratuit. Le code est distribué sous la [licence MIT](LICENSE).
