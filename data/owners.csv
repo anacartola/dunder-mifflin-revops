@@ -1,0 +1,14 @@
+owner_id,name,email,role_start_date,role_end_date,role,manager,segment
+owner_1,Jim Halpert,jhalpert@dundermifflin.invalid,2023-02-12,,Account Executive,Jan Levinson,SMB
+owner_2,Pam Beesly,pbeesly@dundermifflin.invalid,2023-06-21,,Account Executive,Holly Flax,SMB
+owner_3,Dwight Schrute,dschrute@dundermifflin.invalid,2023-09-22,,Account Executive,Charles Miner,SMB
+owner_4,Phyllis Vance,pvance@dundermifflin.invalid,2022-12-26,,Account Executive,Deangelo Vickers,SMB
+owner_5,Stanley Hudson,shudson@dundermifflin.invalid,2023-07-27,,Account Executive,Josh Porter,SMB
+owner_6,Andy Bernard,abernard@dundermifflin.invalid,2023-07-25,,Account Executive,Gabe Lewis,Mid-Market
+owner_7,Karen Filippelli,kfilippelli@dundermifflin.invalid,2022-11-12,2025-05-15,Account Executive,Gabe Lewis,Mid-Market
+owner_8,Angela Martin,amartin@dundermifflin.invalid,2023-03-14,,Account Executive,Deangelo Vickers,Mid-Market
+owner_9,Oscar Martinez,omartinez@dundermifflin.invalid,2022-11-12,,Account Executive,Josh Porter,Mid-Market
+owner_10,Ryan Howard,rhoward@dundermifflin.invalid,2023-07-06,,Account Executive,Robert California,Enterprise
+owner_11,Kevin Malone,kmalone@dundermifflin.invalid,2023-04-28,,Account Executive,Jo Bennett,Enterprise
+owner_12,Danny Cordray,dcordray@dundermifflin.invalid,2024-07-03,2025-04-01,Account Executive,Deangelo Vickers,Strategic
+owner_13,Erin Hannon,ehannon@dundermifflin.invalid,2024-01-04,,Account Executive,Jan Levinson,Strategic

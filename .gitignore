@@ -1,0 +1,10 @@
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+venv/
+output/*.csv
+.DS_Store
+
+# Poetry / packaging (poetry.lock is committed on purpose — do NOT ignore it)
+dist/
+.pytest_cache/

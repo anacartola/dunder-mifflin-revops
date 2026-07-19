@@ -1,0 +1,4 @@
+[virtualenvs]
+# Create the venv inside the project (./.venv) so editors like VS Code
+# detect it automatically. ./.venv is gitignored.
+in-project = true

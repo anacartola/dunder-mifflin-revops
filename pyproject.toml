@@ -1,0 +1,26 @@
+[project]
+name = "dunder-mifflin-revops"
+version = "0.1.0"
+description = "A self-contained RevOps analytics case study on a synthetic B2B SaaS CRM dataset."
+authors = [{ name = "Ana Carolina Cartola", email = "136506553+anacartola@users.noreply.github.com" }]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pandas>=2.0,<3.0",
+    "numpy>=1.24",
+    "plotly>=5.18",
+    "nbformat>=5.9",
+]
+
+[tool.poetry]
+# This is an analysis project (notebook + data), not an installable package.
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+jupyterlab = ">=4.0"
+ipykernel = ">=6.29"
+
+[build-system]
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"
