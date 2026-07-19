@@ -65,6 +65,25 @@ sont pas des bugs, c'est l'exercice.
 
 ---
 
+## Findings (Résultats)
+
+*Spoiler — l'exercice est plus intéressant si vous l'essayez d'abord. Le détail complet est dans [`notebooks/revops_analysis.ipynb`](notebooks/revops_analysis.ipynb) ; ceci est le résumé exécutif.*
+
+**Méthode.** Métriques RevOps standard (win rate, pipeline pondéré avec des poids par catégorie calibrés sur l'historique, couverture, vélocité par étape) plus une couche de rigueur : intervalles de confiance de Wilson, test du khi-deux d'indépendance (avec vérification par permutation), limites de contrôle par étape (SPC) pour le seuil de stagnation, statistiques tenant compte de l'asymétrie, et un Pareto — le tout dans un cadre DMAIC.
+
+**Baseline.** 700 deals, 109 gagnés. Win rate **48,7 %** (IC 95 % 42–55 %). Le deal typique est la **médiane ~58,5k$**, pas la moyenne ~70k$ (la valeur est asymétrique à droite, skew 2,6) ; cycle ~90 jours. Le win rate paraît plus élevé sur Cross-Sell (59 %) et plus bas sur New Client (43 %) — mais les intervalles de confiance se chevauchent, donc le classement est *suggestif, non établi*.
+
+**Q1 — « Nous avons manqué le T1 de 18 %. Qu'est-ce qui a fait dérailler la prévision ? » → Ne peut pas recevoir de réponse telle qu'elle est posée.**
+La table `targets` est corrompue : les objectifs trimestriels bruts gonflent exponentiellement, atteignant ~**93 000×** la base de 2024-T1 d'ici 2025-T4. Sans objectif fiable, le « manque de 18 % » ne peut être vérifié ; une reconstruction à partir du seul trimestre calibré montre un écart de ~**9 %**. C'est la question que le brief ne peut pas soutenir.
+
+**Q2 — « Où les deals stagnent-ils, et pourquoi ? » → Un problème de processus, pas de personnes ni de canaux — testé, pas affirmé.**
+115 des 445 deals ouverts stagnent. Un test du khi-deux d'indépendance **ne trouve aucune association significative** entre la stagnation et le manager, le canal, la taille du compte ou le segment (p = 0,30–0,90 ; hypothèses d'effectifs attendus satisfaites ; un test de permutation confirme) — preuve d'un *processus* défaillant, pas d'un commercial faible ou d'un mauvais canal. (Le type de deal est limite, p ≈ 0,08 : New Client stagne peut-être un peu plus.) La stagnation dépend aussi de l'étape : la durée médiane va de **1 semaine en Negotiation à 5 en Prospecting**, donc un « 4 semaines » uniforme étiquette mal les deals — une limite de contrôle par étape est la correction. Pour savoir où agir, un Pareto montre que **4 des 8 managers concentrent ~80 % de la valeur bloquée**.
+
+**Q3 — « Compte tenu du pipe actuel, sommes-nous sur la bonne voie pour le trimestre prochain ? » → Les bookings disent oui, le pipeline dit non.**
+Les bookings du T2 2025 sont en avance (projection **1,70M$** contre un objectif de **1,17M$**, **+46 %**) — mais c'est l'indicateur retardé. L'indicateur avancé est au rouge : le pipeline ouvert a chuté de **63 %** en quatre semaines (8,46M$ → 3,12M$), 57 % sous le T1 à la même semaine. La couverture du T3 est de **1,3×** (sain : 3×), prévision pondérée à **49 %** de l'objectif. Le T3 hérite d'un pipeline appauvri et nécessite une reconstruction immédiate.
+
+---
+
 ## Exécution
 
 Le projet fige sa version de Python (`.python-version`) et ses dépendances

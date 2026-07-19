@@ -65,6 +65,25 @@ not bugs, they are the exercise.
 
 ---
 
+## Findings
+
+*Spoiler — the exercise is more fun attempted first. Full working in [`notebooks/revops_analysis.ipynb`](notebooks/revops_analysis.ipynb); this is the executive summary.*
+
+**Method.** Standard RevOps metrics (win rate, weighted pipeline with win-rate-calibrated category weights, coverage, stage velocity) plus a rigor layer: Wilson confidence intervals, a chi-square test of independence (with a permutation check), per-stage control limits (SPC) for the stall threshold, skew-aware summaries, and a Pareto — framed with DMAIC.
+
+**Baseline.** 700 deals, 109 closed won. Win rate **48.7%** (95% CI 42–55%). The typical deal is the **median ~$58.5k**, not the mean ~$70k (deal value is right-skewed, skew 2.6); sales cycle ~90 days. Win rate looks highest on Cross-Sell (59%) and lowest on New Client (43%) — but the confidence intervals overlap, so the ranking is *suggestive, not established*.
+
+**Q1 — "We missed Q1 by 18%. What blew the forecast?" → Can't be answered as asked.**
+The `targets` table is corrupted: raw quarterly targets inflate exponentially, reaching ~**93,000×** the 2024-Q1 baseline by 2025-Q4. With no trustworthy target, the "18% miss" can't be verified; a reconstruction from the one calibrated quarter shows a ~**9%** gap. This is the question the brief can't support.
+
+**Q2 — "Where are deals stalling, and why?" → A process problem, not people or channels — tested, not asserted.**
+115 of 445 open deals are stalled. A chi-square test of independence finds **no significant association** between stalling and manager, lead source, account size, or segment (p = 0.30–0.90; expected-count assumptions met; a permutation test agrees) — evidence of a broken *process*, not a weak rep or bad channel. (Deal type is borderline, p ≈ 0.08: New Client may stall slightly more.) Stalling is stage-dependent too: median dwell runs from **1 week in Negotiation to 5 in Prospecting**, so a flat "4 weeks" mislabels deals — a per-stage control limit is the fix. For where to act, a Pareto shows **4 of 8 managers hold ~80% of the stalled value**.
+
+**Q3 — "Given today's pipe, are we on track for next quarter?" → Bookings say yes, pipeline says no.**
+Q2 2025 bookings are ahead of pace (projecting **$1.70M** vs a **$1.17M** target, **+46%**) — but that is the lagging indicator. The leading indicator is flashing red: open pipeline fell **63%** in four weeks ($8.46M → $3.12M), 57% below Q1 at the same week. Q3 coverage is **1.3×** (healthy is 3×), weighted forecast **49%** of target. Q3 inherits a depleted pipeline and needs an immediate rebuild.
+
+---
+
 ## Running it
 
 The project pins its Python version (`.python-version`) and its dependencies
