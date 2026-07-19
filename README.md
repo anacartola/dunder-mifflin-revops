@@ -1,5 +1,7 @@
 # Dunder Mifflin RevOps Case Study
 
+**English** | [Português](README.pt-BR.md) | [Français](README.fr.md) | [简体中文](README.zh-CN.md)
+
 A self-contained RevOps analytics exercise: a synthetic B2B SaaS-style CRM dataset,
 three open-ended questions from a CRO, and a worked solution.
 
