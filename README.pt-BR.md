@@ -67,7 +67,12 @@ são bugs, são o exercício.
 
 ## Findings (Resultados)
 
-*Spoiler — o exercício é mais divertido se você tentar primeiro. O desenvolvimento completo está em [`notebooks/revops_analysis.ipynb`](notebooks/revops_analysis.ipynb); isto é o resumo executivo.*
+*O exercício é mais divertido se você tentar primeiro — desenvolvimento completo em [`notebooks/revops_analysis.ipynb`](notebooks/revops_analysis.ipynb).*
+
+<details>
+<summary><b>Resumo executivo — clique para expandir</b></summary>
+
+<br>
 
 **Método.** Métricas padrão de RevOps (win rate, pipeline ponderado com pesos por categoria calibrados pelo histórico, coverage, velocidade por estágio) mais uma camada de rigor: intervalos de confiança de Wilson, teste qui-quadrado de independência (com verificação por permutação), limites de controle por estágio (SPC) para o limiar de stall, estatísticas cientes de assimetria, e um Pareto — com moldura DMAIC.
 
@@ -79,8 +84,10 @@ A tabela `targets` está corrompida: as metas trimestrais brutas inflam exponenc
 **Q2 — "Onde os deals estão travando, e por quê?" → Um problema de processo, não de pessoas ou canais — testado, não afirmado.**
 115 de 445 deals abertos estão travados. Um teste qui-quadrado de independência **não encontra associação significativa** entre travamento e gestor, canal, tamanho de conta ou segmento (p = 0,30–0,90; premissas de contagem esperada atendidas; teste de permutação concorda) — evidência de um *processo* quebrado, não de um vendedor fraco ou canal ruim. (O tipo de deal está no limiar, p ≈ 0,08: New Client pode travar um pouco mais.) O travamento também depende do estágio: a mediana de permanência vai de **1 semana em Negotiation a 5 em Prospecting**, então um "4 semanas" achatado rotula errado — um limite de controle por estágio é a correção. Sobre onde agir, um Pareto mostra que **4 de 8 gestores concentram ~80% do valor travado**.
 
-**Q3 — "Com o pipe de hoje, estamos no caminho para o próximo trimestre?" → Bookings dizem que sim, pipeline diz que não.**
-As bookings do Q2 2025 estão adiantadas (projetando **US$ 1,70M** vs meta de **US$ 1,17M**, **+46%**) — mas esse é o indicador defasado (lagging). O indicador antecedente (leading) está vermelho: o pipeline aberto caiu **63%** em quatro semanas (US$ 8,46M → US$ 3,12M), 57% abaixo do Q1 na mesma semana. A cobertura do Q3 é **1,3×** (saudável é 3×), forecast ponderado em **49%** da meta. O Q3 herda um pipeline esvaziado e precisa de reconstrução imediata.
+**Q3 — "Com o pipe de hoje, estamos no caminho para o próximo trimestre?" → Bookings vão bem; o sinal de pipeline não é confiável neste export.**
+As bookings do Q2 2025 estão adiantadas (projetando ~**US$ 1,70M** vs a meta **reconstruída** de **US$ 1,17M** (ver Q1), **+46%**). O pipeline aberto *parece* cair **63%** nas últimas quatro semanas (US$ 8,46M → US$ 3,12M) — mas isso coincide exatamente com o fim da janela do export: a cobertura por snapshot cai de ~130 para **95 deals/semana** e **nenhum deal novo entra nas últimas ~3 semanas**. O "colapso" é, em grande parte, um **artefato dos dados truncados**, não um declínio comprovado. Veredito honesto: as bookings estão no ritmo; o indicador antecedente é ilegível perto do corte — um segundo sinal que os dados não sustentam por completo.
+
+</details>
 
 ---
 
@@ -108,6 +115,9 @@ No Windows, os comandos do pyenv são os mesmos com o [pyenv-win](https://github
 
 Sem conta em nuvem, sem autenticação, sem chaves de API. Tudo é lido de `data/`.
 As saídas geradas são escritas em `output/` e estão no gitignore.
+
+A cada push, o CI executa o notebook inteiro num runner limpo (o badge **CI**
+acima) — então "baixar e rodar em qualquer lugar" é verificado automaticamente, não só prometido.
 
 ---
 
@@ -139,5 +149,6 @@ respectivos detentores de direitos e são usados aqui apenas como rótulos em um
 conjunto de dados educacional, gratuito e não comercial. Nenhuma afiliação ou
 endosso está implícito.
 
-O conjunto de dados, o notebook e o texto deste repositório são disponibilizados
-para uso educacional gratuito. O código é licenciado sob a [Licença MIT](LICENSE).
+O **código** deste repositório é licenciado sob a [Licença MIT](LICENSE). Os
+**dados e o conteúdo escrito** estão sob [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — livres para
+compartilhar e adaptar com atribuição.

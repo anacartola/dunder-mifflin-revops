@@ -67,7 +67,12 @@ sont pas des bugs, c'est l'exercice.
 
 ## Findings (Résultats)
 
-*Spoiler — l'exercice est plus intéressant si vous l'essayez d'abord. Le détail complet est dans [`notebooks/revops_analysis.ipynb`](notebooks/revops_analysis.ipynb) ; ceci est le résumé exécutif.*
+*L'exercice est plus intéressant essayé d'abord — détail complet dans [`notebooks/revops_analysis.ipynb`](notebooks/revops_analysis.ipynb).*
+
+<details>
+<summary><b>Résumé exécutif — cliquer pour développer</b></summary>
+
+<br>
 
 **Méthode.** Métriques RevOps standard (win rate, pipeline pondéré avec des poids par catégorie calibrés sur l'historique, couverture, vélocité par étape) plus une couche de rigueur : intervalles de confiance de Wilson, test du khi-deux d'indépendance (avec vérification par permutation), limites de contrôle par étape (SPC) pour le seuil de stagnation, statistiques tenant compte de l'asymétrie, et un Pareto — le tout dans un cadre DMAIC.
 
@@ -79,8 +84,10 @@ La table `targets` est corrompue : les objectifs trimestriels bruts gonflent exp
 **Q2 — « Où les deals stagnent-ils, et pourquoi ? » → Un problème de processus, pas de personnes ni de canaux — testé, pas affirmé.**
 115 des 445 deals ouverts stagnent. Un test du khi-deux d'indépendance **ne trouve aucune association significative** entre la stagnation et le manager, le canal, la taille du compte ou le segment (p = 0,30–0,90 ; hypothèses d'effectifs attendus satisfaites ; un test de permutation confirme) — preuve d'un *processus* défaillant, pas d'un commercial faible ou d'un mauvais canal. (Le type de deal est limite, p ≈ 0,08 : New Client stagne peut-être un peu plus.) La stagnation dépend aussi de l'étape : la durée médiane va de **1 semaine en Negotiation à 5 en Prospecting**, donc un « 4 semaines » uniforme étiquette mal les deals — une limite de contrôle par étape est la correction. Pour savoir où agir, un Pareto montre que **4 des 8 managers concentrent ~80 % de la valeur bloquée**.
 
-**Q3 — « Compte tenu du pipe actuel, sommes-nous sur la bonne voie pour le trimestre prochain ? » → Les bookings disent oui, le pipeline dit non.**
-Les bookings du T2 2025 sont en avance (projection **1,70M$** contre un objectif de **1,17M$**, **+46 %**) — mais c'est l'indicateur retardé. L'indicateur avancé est au rouge : le pipeline ouvert a chuté de **63 %** en quatre semaines (8,46M$ → 3,12M$), 57 % sous le T1 à la même semaine. La couverture du T3 est de **1,3×** (sain : 3×), prévision pondérée à **49 %** de l'objectif. Le T3 hérite d'un pipeline appauvri et nécessite une reconstruction immédiate.
+**Q3 — « Compte tenu du pipe actuel, sommes-nous sur la bonne voie pour le trimestre prochain ? » → Les bookings vont bien ; le signal du pipeline n'est pas fiable dans cet export.**
+Les bookings du T2 2025 sont en avance (projection ~**1,70M$** contre l'objectif **reconstruit** de **1,17M$** (voir Q1), **+46 %**). Le pipeline ouvert *semble* chuter de **63 %** sur les quatre dernières semaines (8,46M$ → 3,12M$) — mais cela coïncide exactement avec la fermeture de la fenêtre d'export : la couverture par snapshot passe de ~130 à **95 deals/semaine** et **aucun nouveau deal n'entre durant les ~3 dernières semaines**. L'« effondrement » est en grande partie un **artefact des données tronquées**, pas un déclin avéré. Verdict honnête : les bookings tiennent le rythme ; l'indicateur avancé est illisible près de la coupure — un second signal que les données ne peuvent pas pleinement étayer.
+
+</details>
 
 ---
 
@@ -109,6 +116,9 @@ Sous Windows, les commandes pyenv sont les mêmes avec [pyenv-win](https://githu
 
 Pas de compte cloud, pas d'authentification, pas de clés d'API. Tout est lu depuis
 `data/`. Les sorties générées sont écrites dans `output/` et sont ignorées par git.
+
+À chaque push, le CI exécute le notebook entier sur un runner propre (le badge
+**CI** ci-dessus) — « télécharger et exécuter partout » est donc vérifié automatiquement, pas seulement promis.
 
 ---
 
@@ -141,5 +151,6 @@ ayants droit respectifs et ne sont utilisés ici que comme étiquettes dans un j
 données pédagogique, gratuit et non commercial. Aucune affiliation ni aucun
 endossement n'est sous-entendu.
 
-Le jeu de données, le notebook et le texte de ce dépôt sont diffusés pour un usage
-éducatif gratuit. Le code est distribué sous la [licence MIT](LICENSE).
+Le **code** de ce dépôt est distribué sous la [licence MIT](LICENSE). Les **données
+et le contenu rédactionnel** sont sous [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — libres de partage et
+d'adaptation avec attribution.

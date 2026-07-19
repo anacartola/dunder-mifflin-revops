@@ -67,7 +67,12 @@ not bugs, they are the exercise.
 
 ## Findings
 
-*Spoiler — the exercise is more fun attempted first. Full working in [`notebooks/revops_analysis.ipynb`](notebooks/revops_analysis.ipynb); this is the executive summary.*
+*The exercise is more fun attempted first — full working in [`notebooks/revops_analysis.ipynb`](notebooks/revops_analysis.ipynb).*
+
+<details>
+<summary><b>Executive summary — click to expand</b></summary>
+
+<br>
 
 **Method.** Standard RevOps metrics (win rate, weighted pipeline with win-rate-calibrated category weights, coverage, stage velocity) plus a rigor layer: Wilson confidence intervals, a chi-square test of independence (with a permutation check), per-stage control limits (SPC) for the stall threshold, skew-aware summaries, and a Pareto — framed with DMAIC.
 
@@ -79,8 +84,10 @@ The `targets` table is corrupted: raw quarterly targets inflate exponentially, r
 **Q2 — "Where are deals stalling, and why?" → A process problem, not people or channels — tested, not asserted.**
 115 of 445 open deals are stalled. A chi-square test of independence finds **no significant association** between stalling and manager, lead source, account size, or segment (p = 0.30–0.90; expected-count assumptions met; a permutation test agrees) — evidence of a broken *process*, not a weak rep or bad channel. (Deal type is borderline, p ≈ 0.08: New Client may stall slightly more.) Stalling is stage-dependent too: median dwell runs from **1 week in Negotiation to 5 in Prospecting**, so a flat "4 weeks" mislabels deals — a per-stage control limit is the fix. For where to act, a Pareto shows **4 of 8 managers hold ~80% of the stalled value**.
 
-**Q3 — "Given today's pipe, are we on track for next quarter?" → Bookings say yes, pipeline says no.**
-Q2 2025 bookings are ahead of pace (projecting **$1.70M** vs a **$1.17M** target, **+46%**) — but that is the lagging indicator. The leading indicator is flashing red: open pipeline fell **63%** in four weeks ($8.46M → $3.12M), 57% below Q1 at the same week. Q3 coverage is **1.3×** (healthy is 3×), weighted forecast **49%** of target. Q3 inherits a depleted pipeline and needs an immediate rebuild.
+**Q3 — "Given today's pipe, are we on track for next quarter?" → Bookings look fine; the pipeline signal can't be trusted in this export.**
+Q2 2025 bookings are ahead of pace (projecting ~**$1.70M** vs the **reconstructed** **$1.17M** target (see Q1), **+46%**). The open pipeline *appears* to fall **63%** in the final four weeks ($8.46M → $3.12M) — but that coincides exactly with the export window closing: snapshot coverage drops from ~130 to **95 deals/week** and **no new deals enter in the last ~3 weeks**. The "collapse" is largely an **artifact of the truncated data**, not a proven decline. Honest verdict: bookings are on pace; the leading indicator is unreadable near the cutoff — a second signal the data can't fully support.
+
+</details>
 
 ---
 
@@ -108,6 +115,9 @@ On Windows, the pyenv commands are the same under [pyenv-win](https://github.com
 
 No cloud account, no auth, no API keys. Everything reads from `data/`.
 Derived outputs are written to `output/` and are gitignored.
+
+Every push runs the notebook end-to-end on a clean CI runner (the **CI** badge
+above), so "downloads and runs anywhere" is checked automatically, not just claimed.
 
 ---
 
@@ -137,5 +147,6 @@ real mailbox.
 respective rights holders and are used here only as labels in a free,
 non-commercial teaching dataset. No affiliation or endorsement is implied.
 
-The dataset, notebook, and text in this repository are released for free
-educational use. The code is licensed under the [MIT License](LICENSE).
+The **code** in this repository is licensed under the [MIT License](LICENSE). The
+**dataset and written content** are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — free to
+share and adapt with attribution.
