@@ -1,0 +1,4 @@
+# Normalize line endings so the project behaves identically on
+# Windows, macOS, and Linux. Text files are stored and checked out
+# with LF, which every tool in this project (Python, Jupyter, git) handles.
+* text=auto eol=lf
